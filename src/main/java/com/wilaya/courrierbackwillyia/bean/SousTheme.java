@@ -1,9 +1,6 @@
 package com.wilaya.courrierbackwillyia.bean;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class SousTheme {
@@ -12,6 +9,7 @@ public class SousTheme {
     private Long id;
     private String libelle;
     private Long code;
+    @ManyToOne
     private Theme theme;
 
 

@@ -1,9 +1,6 @@
 package com.wilaya.courrierbackwillyia.bean;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Expediteur {
@@ -12,6 +9,7 @@ public class Expediteur {
     private Long id;
     private String libellle;
     private Long code;
+    @ManyToOne
     private TypeExpediteur typeExpediteur;
 
 
