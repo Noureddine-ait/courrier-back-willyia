@@ -6,11 +6,9 @@ import javax.persistence.*;
 import java.util.Date;
 @Entity
 public class TraitementCourrier {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
     @ManyToOne
     private Courrier courrier;
     private String libelle;

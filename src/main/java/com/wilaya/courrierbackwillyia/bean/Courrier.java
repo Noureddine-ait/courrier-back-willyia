@@ -10,8 +10,11 @@ public class Courrier {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @OneToOne
     private TypeCourrier typeCourrier;
+    @OneToOne
     private EntiteAdmin coordinateur;
+    @OneToOne
     private SousDossier sousDossier;
     private String ref;
     private String annee;
