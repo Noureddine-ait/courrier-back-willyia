@@ -1,9 +1,12 @@
 package com.wilaya.courrierbackwillyia.bean;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Courrier {
@@ -34,6 +37,32 @@ public class Courrier {
     @ManyToOne
     private TypeCourrier typeExpediteur;
 
+
+
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @OneToMany(mappedBy = "courrier")
+    private List<ConsigneCourrier> consigneCourriers = new ArrayList<ConsigneCourrier>();
+
+
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @OneToMany(mappedBy = "courrier")
+    private List<TraitementCourrier> traitementCourriers = new ArrayList<TraitementCourrier>();
+
+    public List<ConsigneCourrier> getConsigneCourriers() {
+        return consigneCourriers;
+    }
+
+    public void setConsigneCourriers(List<ConsigneCourrier> consigneCourriers) {
+        this.consigneCourriers = consigneCourriers;
+    }
+
+    public List<TraitementCourrier> getTraitementCourriers() {
+        return traitementCourriers;
+    }
+
+    public void setTraitementCourriers(List<TraitementCourrier> traitementCourriers) {
+        this.traitementCourriers = traitementCourriers;
+    }
 
     public Long getId() {
         return id;
