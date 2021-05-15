@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping()
+@CrossOrigin(origins = {"http://localhost:4200"})
+@RequestMapping("application/courrier")
 public class CourrierProvided {
     @GetMapping("/ref/{ref}")
     public Courrier findByRef(@PathVariable String ref) {

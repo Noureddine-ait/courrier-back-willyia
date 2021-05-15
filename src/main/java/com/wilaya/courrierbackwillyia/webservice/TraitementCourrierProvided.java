@@ -10,15 +10,16 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping
+@CrossOrigin(origins = {"http://localhost:4200"})
+@RequestMapping("application/TraitementCourrier")
 public class TraitementCourrierProvided {
     @Autowired
     private TraitementCourrierService traitementCourrierService;
-@GetMapping("courrier-refe/ref/{ref}")
+@GetMapping("courrier-ref/ref/{ref}")
     public List<TraitementCourrier> findByCourrierRef(@PathVariable String ref) {
     return traitementCourrierService.findByCourrierRef(ref);
 }
-@DeleteMapping("courrier-refe/ref/{ref}")
+@DeleteMapping("courrier-ref/ref/{ref}")
     public int deleteByCourrierRef(@PathVariable String ref) {
         return traitementCourrierService.deleteByCourrierRef(ref);
     }
