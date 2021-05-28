@@ -21,6 +21,7 @@ public class TypeCourrier {
         this.id = id;
     }
 
+
     public String getLibelle() {
         return libelle;
     }
