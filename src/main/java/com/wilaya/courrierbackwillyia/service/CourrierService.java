@@ -39,6 +39,7 @@ public class CourrierService {
         if (findByRef(courrier.getRef()) != null) {
             return null;
         }
+
         else {
             courrier.setTypeCourrier(typeCourrierService.findByCode(courrier.getTypeCourrier().getCode()));
             courrier.setCategorieCourrier(categorieCourrierService.findByCode(courrier.getCategorieCourrier().getCode()));
