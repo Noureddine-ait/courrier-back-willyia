@@ -11,7 +11,7 @@ public class CategorieCourrier {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String libelle;
-    private Long code;
+    private String code;
 
     public Long getId() {
         return id;
@@ -29,11 +29,11 @@ public class CategorieCourrier {
         this.libelle = libelle;
     }
 
-    public Long getCode() {
+    public String getCode() {
         return code;
     }
 
-    public void setCode(Long code) {
+    public void setCode(String code) {
         this.code = code;
     }
 }

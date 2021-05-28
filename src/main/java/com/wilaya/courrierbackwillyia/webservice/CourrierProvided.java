@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:4200"})
 @RequestMapping("application/courrier")
 public class CourrierProvided {
+
     @GetMapping("/ref/{ref}")
     public Courrier findByRef(@PathVariable String ref) {
         return courrierService.findByRef(ref);
@@ -30,7 +30,7 @@ public class CourrierProvided {
         return courrierService.findAll();
     }
     @PostMapping("/")
-    public int save(@RequestBody  Courrier courrier) {
+    public Courrier save(@RequestBody  Courrier courrier) {
         return courrierService.save(courrier);
     }
     @Autowired

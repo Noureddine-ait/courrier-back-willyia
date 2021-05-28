@@ -2,7 +2,6 @@ package com.wilaya.courrierbackwillyia.service;
 
 
 import com.wilaya.courrierbackwillyia.bean.Courrier;
-import com.wilaya.courrierbackwillyia.bean.TraitementCourrier;
 import com.wilaya.courrierbackwillyia.dao.CourrierDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,23 +34,49 @@ public class CourrierService {
         return courrierDao.findAll();
     }
 
-    public int save(Courrier courrier) {
+    public Courrier save(Courrier courrier) {
 
         if (findByRef(courrier.getRef()) != null) {
-            return -1;
-        } else {
+            return null;
+        }
+        else {
+            courrier.setTypeCourrier(typeCourrierService.findByCode(courrier.getTypeCourrier().getCode()));
+            courrier.setCategorieCourrier(categorieCourrierService.findByCode(courrier.getCategorieCourrier().getCode()));
+            courrier.setCoordinateur(entiteAdminService.findByCode(courrier.getCoordinateur().getCode()));
+             courrier.setSousDossier(sousDossierService.findByCode(courrier.getSousDossier().getCode()));
+             courrier.setSousTheme(sousThemeService.findByCode(courrier.getSousTheme().getCode()));
+             courrier.setExpediteur(expediteurService.findByCode(courrier.getExpediteur().getCode()));
+             courrier.setTypeExpediteur(typeExpediteurService.findByCode(courrier.getTypeExpediteur().getCode()));
             courrierDao.save(courrier);
             consigneCourrierService.save(courrier , courrier.getConsigneCourriers());
             traitementCourrierService.save(courrier , courrier.getTraitementCourriers() );
 
-            return 1;
+            return courrier;
+
         }
 
 
     }
+    @Autowired
+    private TypeExpediteurService typeExpediteurService ;
+    @Autowired
+    private ExpediteurService expediteurService;
 
     @Autowired
- private CourrierDao  courrierDao;
+    private SousThemeService sousThemeService ;
+
+    @Autowired
+    private SousDossierService sousDossierService ;
+
+    @Autowired
+    private EntiteAdminService entiteAdminService ;
+
+    @Autowired
+    private CategorieCourrierService categorieCourrierService ;
+    @Autowired
+    private TypeCourrierService typeCourrierService;
+    @Autowired
+    private CourrierDao  courrierDao;
 
     @Autowired
     private ConsigneCourrierService consigneCourrierService;

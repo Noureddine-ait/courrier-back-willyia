@@ -34,8 +34,11 @@ public class Courrier {
     private CategorieCourrier categorieCourrier;
     @ManyToOne
     private Expediteur expediteur;
+
+
+
     @ManyToOne
-    private TypeCourrier typeExpediteur;
+    private TypeExpediteur typeExpediteur;
 
 
 
@@ -176,11 +179,11 @@ public class Courrier {
         this.expediteur = expediteur;
     }
 
-    public TypeCourrier getTypeExpediteur() {
+    public TypeExpediteur getTypeExpediteur() {
         return typeExpediteur;
     }
 
-    public void setTypeExpediteur(TypeCourrier typeExpediteur) {
+    public void setTypeExpediteur(TypeExpediteur typeExpediteur) {
         this.typeExpediteur = typeExpediteur;
     }
 }
