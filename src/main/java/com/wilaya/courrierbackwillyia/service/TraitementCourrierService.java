@@ -22,12 +22,15 @@ public class TraitementCourrierService {
         return traitementCourrierDao.deleteByCourrierRef(ref);
     }
 
-    public int save(Courrier courrier, List<TraitementCourrier> traitementCourriers ) {
-        for ( TraitementCourrier traitementCourrier : traitementCourriers) {
-            traitementCourrier.setCourrier(courrier);
-            traitementCourrierDao.save(traitementCourrier);
+    public int save(Courrier courrier, List<TraitementCourrier> traitementCourriers) {
+        if (traitementCourriers != null) {
+            for (TraitementCourrier traitementCourrier : traitementCourriers) {
+                traitementCourrier.setCourrier(courrier);
+                traitementCourrierDao.save(traitementCourrier);
 
+            }
         }
+
         return 1;
     }
 }
