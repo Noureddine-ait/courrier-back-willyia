@@ -8,7 +8,7 @@ public class SousTheme {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String libelle;
-    private Long code;
+    private String code;
     @ManyToOne
     private Theme theme;
 
@@ -29,11 +29,11 @@ public class SousTheme {
         this.libelle = libelle;
     }
 
-    public Long getCode() {
+    public String getCode() {
         return code;
     }
 
-    public void setCode(Long code) {
+    public void setCode(String code) {
         this.code = code;
     }
 

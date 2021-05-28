@@ -1,5 +1,6 @@
 package com.wilaya.courrierbackwillyia.dao;
 
+import com.wilaya.courrierbackwillyia.bean.ConsigneCourrier;
 import com.wilaya.courrierbackwillyia.bean.Courrier;
 import com.wilaya.courrierbackwillyia.bean.TraitementCourrier;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -12,5 +13,5 @@ public interface  TraitementCourrierDao extends JpaRepository<TraitementCourrier
 
     List<TraitementCourrier> findByCourrierRef(String ref);
     int deleteByCourrierRef(String ref);
-
+    TraitementCourrier  findByRef(String ref);
 }

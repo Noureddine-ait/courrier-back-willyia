@@ -1,5 +1,6 @@
 package com.wilaya.courrierbackwillyia.webservice;
 
+import com.wilaya.courrierbackwillyia.bean.ConsigneCourrier;
 import com.wilaya.courrierbackwillyia.bean.Courrier;
 import com.wilaya.courrierbackwillyia.bean.TraitementCourrier;
 import com.wilaya.courrierbackwillyia.service.TraitementCourrierService;
@@ -13,9 +14,16 @@ import java.util.List;
 @CrossOrigin(origins = {"http://localhost:4200"})
 @RequestMapping("application/TraitementCourrier")
 public class TraitementCourrierProvided {
+
     @Autowired
     private TraitementCourrierService traitementCourrierService;
-@GetMapping("courrier-ref/ref/{ref}")
+
+    @GetMapping("/ref/{ref}")
+    public TraitementCourrier findByRef(@PathVariable String ref) {
+        return traitementCourrierService.findByRef(ref);
+    }
+
+    @GetMapping("courrier-ref/ref/{ref}")
     public List<TraitementCourrier> findByCourrierRef(@PathVariable String ref) {
     return traitementCourrierService.findByCourrierRef(ref);
 }

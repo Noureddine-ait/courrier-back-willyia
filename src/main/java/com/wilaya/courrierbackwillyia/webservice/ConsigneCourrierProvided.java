@@ -11,6 +11,13 @@ import java.util.List;
 @RequestMapping("application/ConsigneCourrier")
 public class ConsigneCourrierProvided {
 
+
+
+    @GetMapping("/ref/{ref}")
+    public ConsigneCourrier findByRef(@PathVariable String ref) {
+        return consigneCourrierService.findByRef(ref);
+    }
+
     @GetMapping("courrier-ref/ref/{ref}")
     public List<ConsigneCourrier> findByCourrierRef(@PathVariable String ref) {
         return consigneCourrierService.findByCourrierRef(ref);
@@ -24,7 +31,7 @@ public class ConsigneCourrierProvided {
     public int save(Courrier courrier, List<ConsigneCourrier> consigneCourriers) {
         return consigneCourrierService.save(courrier, consigneCourriers);
     }
-*/
+     */
 
     @PutMapping("/")
     public void update(@RequestBody ConsigneCourrier consigneCourrier) {

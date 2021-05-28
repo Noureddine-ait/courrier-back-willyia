@@ -28,7 +28,9 @@ public class ConsigneCourrierService {
     }
 
     public int save (Courrier courrier, List<ConsigneCourrier> consigneCourriers) {
-
+        if (consigneCourriers == null || consigneCourriers.isEmpty()) {
+            return -1;
+        }
        for(ConsigneCourrier consigneCourrier : consigneCourriers ) {
            consigneCourrier.setCourrier(courrier);
            consigneCourrierDao.save(consigneCourrier);
@@ -39,4 +41,9 @@ public void update(ConsigneCourrier consigneCourrier){
     consigneCourrierDao.save(consigneCourrier);
 }
 public List<ConsigneCourrier> findAll(){ return consigneCourrierDao.findAll(); }
+
+
+    public ConsigneCourrier findByRef(String ref) {
+        return consigneCourrierDao.findByRef(ref);
+    }
 }

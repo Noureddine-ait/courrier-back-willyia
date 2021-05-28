@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
 import java.util.Date;
+
 @Entity
 public class TraitementCourrier {
     @Id
@@ -12,6 +13,9 @@ public class TraitementCourrier {
     @ManyToOne
     private Courrier courrier;
     private String libelle;
+    private String ref;
+
+
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private Date dateTraitement;
     @ManyToOne
@@ -65,5 +69,13 @@ public class TraitementCourrier {
 
     public void setResponsble(User responsble) {
         this.responsble = responsble;
+    }
+
+    public String getRef() {
+        return ref;
+    }
+
+    public void setRef(String ref) {
+        this.ref = ref;
     }
 }

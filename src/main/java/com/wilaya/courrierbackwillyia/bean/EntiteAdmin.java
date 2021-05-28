@@ -8,7 +8,7 @@ public class EntiteAdmin {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String libelle;
-    private Long code;
+    private String code;
     @ManyToOne
     private User responsable;
     @ManyToOne
@@ -33,11 +33,11 @@ public class EntiteAdmin {
         this.libelle = libelle;
     }
 
-    public Long getCode() {
+    public String getCode() {
         return code;
     }
 
-    public void setCode(Long code) {
+    public void setCode(String code) {
         this.code = code;
     }
 

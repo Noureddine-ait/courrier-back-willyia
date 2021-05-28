@@ -13,6 +13,10 @@ public class ConsigneCourrier {
     @ManyToOne
     private  Courrier courrier;
     private  String libelle;
+    private String ref;
+
+
+
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private Date dateConsigne;
     @ManyToOne
@@ -52,7 +56,13 @@ public class ConsigneCourrier {
         this.dateConsigne = dateConsigne;
     }
 
+    public String getRef() {
+        return ref;
+    }
 
+    public void setRef(String ref) {
+        this.ref = ref;
+    }
 
     public String getLibelle() {
         return libelle;
